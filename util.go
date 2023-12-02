@@ -33,3 +33,12 @@ func Map[T, U any](ts []T, f func(T) U) []U {
 	}
 	return us
 }
+
+func Every[T any](ts []T, fn func(T) bool) bool {
+	for i := range ts {
+		if !fn(ts[i]) {
+			return false
+		}
+	}
+	return true
+}
